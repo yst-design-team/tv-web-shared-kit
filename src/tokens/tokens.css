@@ -1,0 +1,150 @@
+/* Auto-derived from Figma Variables (DEMO 代码化 Copy / yfhx0nkEr7PdVedp7PYIwr).
+   All sizes are in 1080p design pixels — <Stage> handles scaling. */
+
+:root {
+  /* ---------- Color · Brand / Focus ---------- */
+  --color-primary:           #5864cb;
+  --color-focus-100:         #ffefe3;
+  --color-focus-20:          #ffefe333;
+  --color-focus-10:          #ffefe31a;
+  --color-focus-text:        #a84e04;
+
+  /* ---------- Color · Neutral ---------- */
+  --color-white-100:         #ffffff;
+  --color-white-60:          #ffffff99;
+  --color-white-20:          #ffffff33;
+  --color-white-15:          #ffffff26;
+  --color-white-10:          #ffffff1a;
+  --color-white-5:           #ffffff0d;
+  --color-black-100:         #000000;
+  --color-text-cool-white:   #f2faff;   /* WaterfallHome tab / chip text */
+
+  /* ---------- Color · Semantic ---------- */
+  --color-orange:            #fb791d;
+  --color-red:               #ff2525;
+  --color-green:             #147b56;
+  --color-green-vivid:       #00a46b;  /* WaterfallHome "免费" 角标 (Figma raw) */
+  --color-teal:              #07b9b9;
+  --color-rating:            #ffaa00;
+  --color-rating-focus:      #e13b5f;
+
+  /* ---------- Color · Page surface ---------- */
+  --color-bg-page-dark:      #0f1115;   /* WaterfallHome 主背景 */
+
+  /* ---------- Color · Text ---------- */
+  --color-text-dark-1:       #ffffff;
+  --color-text-dark-2:       #ffffffcc;
+  --color-text-dark-3:       #ffffff99;
+  --color-text-light-1:      #000000;
+  --color-text-light-2:      #000000cc;
+
+  /* ---------- Color · Surface / Stroke ---------- */
+  --color-card-bg:           #ffffff1a;
+  --color-avatar-stroke:     #ffffff80;
+  --color-stroke-dark:       #ffffff33;
+  --color-stroke-light:      #00000033;
+  --color-divider-focus:     #3b1b0014;
+  --color-grey:              #55555599;
+  --color-grey-current:      #8b858099;
+
+  /* ---------- Color · Card surface (dark content BG) ---------- */
+  --color-surface-dark:      #1f1f1f;
+  --color-surface-alt-card:  #183c6d;
+  --color-scrim-end:         #263453;
+  --color-placeholder-top:   #2e3a4c;
+  --color-placeholder-bot:   #1a2230;
+  /* Shared rank badge gradient stops */
+  --color-rank-grad-top:     #475e81;
+  --color-rank-grad-bot:     rgba(90,119,161,0.7);
+
+  /* ---------- Radius ---------- */
+  --radius-s:    3px;
+  --radius-m:    6px;
+  --radius-l:    9px;
+  --radius-max:  20000px;
+
+  /* ---------- Stroke ---------- */
+  --stroke-1-5:        1.5px;
+  --stroke-2:          2px;
+  --stroke-focus-outer:4px;
+
+  /* ---------- Opacity ---------- */
+  --opacity-60:  0.6;
+  --opacity-80:  0.8;
+  --opacity-100: 1;
+
+  /* ---------- Spacing ---------- */
+  --space-9:  9px;
+  --space-12: 12px;
+  --space-15: 15px;
+  --space-18: 18px;
+  --space-21: 21px;
+  --space-24: 24px;
+  --space-30: 30px;
+  --space-42: 42px;
+  --space-48: 48px;
+  --space-stage-bottom-breathing: 51px;
+
+  /* ---------- Typography ---------- */
+  --font-family-base: "PingFang SC", -apple-system, system-ui, "Helvetica Neue", Arial, sans-serif;
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+
+  /* Navigation-specific sizes (NavTab, SideTab, ChannelNavTab) */
+  --font-nav-tab-size:      32px;
+  --font-channel-tab-size:  36px;   /* WaterfallHome 频道 tab (NavTab kind=image/text 共用) */
+  --font-side-tab-size:     36px;
+
+  /* WaterfallHome typography */
+  --font-section-title-size:   42px; --font-section-title-weight:   600; --font-section-title-lh:   1;
+  --font-poster-title-size:    32px; --font-poster-title-weight:    400; --font-poster-title-lh:    1;
+  --font-badge-size:           20px; --font-badge-weight:           600; --font-badge-lh:           1;
+
+  /* Display */
+  --font-display-large-size: 54px;  --font-display-large-weight: 600;  --font-display-large-lh: 1;
+  --font-display-medium-size:39px;  --font-display-medium-weight:600;  --font-display-medium-lh:1;
+  --font-display-small-size: 36px;  --font-display-small-weight: 600;  --font-display-small-lh: 1;
+  /* Headline */
+  --font-headline-large-size:    33px; --font-headline-large-weight:    600; --font-headline-large-lh:    1;
+  --font-headline-medium-b-size: 30px; --font-headline-medium-b-weight: 600; --font-headline-medium-b-lh: 1;
+  --font-headline-medium-r-size: 30px; --font-headline-medium-r-weight: 400; --font-headline-medium-r-lh: 1.4;
+  --font-headline-small-b-size:  27px; --font-headline-small-b-weight:  500; --font-headline-small-b-lh:  1;
+  --font-headline-small-r-size:  27px; --font-headline-small-r-weight:  400; --font-headline-small-r-lh:  1;
+  /* Body */
+  --font-body-medium-r-size: 24px; --font-body-medium-r-weight: 400; --font-body-medium-r-lh: 1;
+  --font-body-medium-b-size: 24px; --font-body-medium-b-weight: 500; --font-body-medium-b-lh: 1;
+  --font-body-medium-p-size: 24px; --font-body-medium-p-weight: 400; --font-body-medium-p-lh: 1.4;
+  --font-body-small-r-size:  21px; --font-body-small-r-weight:  400; --font-body-small-r-lh:  1;
+  /* Label */
+  --font-label-18-size: 18px; --font-label-18-weight: 400; --font-label-18-lh: 1.2;
+
+  /* ---------- Motion ---------- */
+  --duration-fast:  160ms;
+  --duration-base:  240ms;
+  --duration-slow:  360ms;
+  --ease-out:       cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out:    cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Typography utility classes ---------- */
+body { font-family: var(--font-family-base); color: var(--color-text-dark-1); }
+
+.t-display-l { font-size: var(--font-display-large-size);  font-weight: var(--font-display-large-weight);  line-height: var(--font-display-large-lh); }
+.t-display-m { font-size: var(--font-display-medium-size); font-weight: var(--font-display-medium-weight); line-height: var(--font-display-medium-lh); }
+.t-display-s { font-size: var(--font-display-small-size);  font-weight: var(--font-display-small-weight);  line-height: var(--font-display-small-lh); }
+
+.t-headline-l   { font-size: var(--font-headline-large-size);    font-weight: var(--font-headline-large-weight);    line-height: var(--font-headline-large-lh); }
+.t-headline-m-b { font-size: var(--font-headline-medium-b-size); font-weight: var(--font-headline-medium-b-weight); line-height: var(--font-headline-medium-b-lh); }
+.t-headline-m   { font-size: var(--font-headline-medium-r-size); font-weight: var(--font-headline-medium-r-weight); line-height: var(--font-headline-medium-r-lh); }
+.t-headline-s-b { font-size: var(--font-headline-small-b-size);  font-weight: var(--font-headline-small-b-weight);  line-height: var(--font-headline-small-b-lh); }
+.t-headline-s   { font-size: var(--font-headline-small-r-size);  font-weight: var(--font-headline-small-r-weight);  line-height: var(--font-headline-small-r-lh); }
+
+.t-body-m   { font-size: var(--font-body-medium-r-size); font-weight: var(--font-body-medium-r-weight); line-height: var(--font-body-medium-r-lh); }
+.t-body-m-b { font-size: var(--font-body-medium-b-size); font-weight: var(--font-body-medium-b-weight); line-height: var(--font-body-medium-b-lh); }
+.t-body-m-p { font-size: var(--font-body-medium-p-size); font-weight: var(--font-body-medium-p-weight); line-height: var(--font-body-medium-p-lh); }
+.t-body-s   { font-size: var(--font-body-small-r-size);  font-weight: var(--font-body-small-r-weight);  line-height: var(--font-body-small-r-lh); }
+
+.t-label    { font-size: var(--font-label-18-size); font-weight: var(--font-label-18-weight); line-height: var(--font-label-18-lh); }

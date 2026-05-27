@@ -1,0 +1,106 @@
+/* TemplatePage.css —— 所有值走 token，禁止内联 #xxxxxx 或魔法 px。
+   RENAME: 把所有 .template-page 类名替换为你的页面名（建议 kebab-case 与 PAGE_ID 一致）。
+*/
+
+.template-page {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  padding: 60px 80px var(--space-stage-bottom-breathing, 51px);
+  background: var(--color-bg-page-dark, #0f1115);
+  color: var(--color-text-dark-1, #ffffff);
+  box-sizing: border-box;
+  overflow: clip;
+}
+
+.template-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.template-page__title {
+  font-size: var(--font-section-title-size, 48px);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.template-page__subtitle {
+  font-size: var(--font-poster-title-size, 24px);
+  color: var(--color-text-dark-3, #ffffff99);
+  margin: 0;
+}
+
+.template-page__hero-row {
+  margin-bottom: 60px;
+}
+
+.template-page__hero {
+  position: relative;
+  width: 1280px;
+  height: 480px;
+  border-radius: var(--radius-card, 16px);
+  overflow: hidden;
+  transition: transform 380ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.template-page__hero[data-state='focus'] {
+  box-shadow: 0 0 0 var(--fr-ring-width, 4px) var(--fr-ring-color, var(--color-focus-100, #ffefe3));
+}
+
+.template-page__hero-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.template-page__hero-meta {
+  position: absolute;
+  left: 32px;
+  bottom: 24px;
+  font-size: var(--font-poster-title-size, 24px);
+  color: var(--color-text-dark-1, #ffffff);
+}
+
+.template-page__rail {
+  display: flex;
+  gap: 24px;
+  overflow: visible;
+}
+
+.template-page__rail-item {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 380ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.template-page__rail-item[data-state='focus'] {
+  transform: translateY(-8px);
+}
+
+.template-page__rail-cover {
+  width: 320px;
+  height: 180px;
+  border-radius: var(--radius-card, 12px);
+  object-fit: cover;
+}
+
+.template-page__rail-item[data-state='focus'] .template-page__rail-cover {
+  box-shadow: 0 0 0 var(--fr-ring-width, 4px) var(--fr-ring-color, var(--color-focus-100, #ffefe3));
+}
+
+.template-page__rail-title {
+  font-size: var(--font-poster-title-size, 24px);
+  font-weight: 500;
+  margin: 0;
+}
+
+.template-page__rail-meta {
+  font-size: var(--font-badge-size, 16px);
+  color: var(--color-text-dark-3, #ffffff99);
+  margin: 0;
+}

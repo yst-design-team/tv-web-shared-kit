@@ -1,0 +1,854 @@
+{
+  "version": 1,
+  "note": "Machine-readable mirror of component-inventory.md. Keep both in sync; npm run inventory:check enforces that every entry here has a matching src/components/<name>/index.ts and vice versa.",
+  "schema": {
+    "components[].name": "PascalCase folder under src/components/",
+    "components[].dir": "Relative path from repo root",
+    "components[].tier": "T1 | T2 | T3 | TW (page-specific) | internal (sub-part, do not export)",
+    "components[].figmaId": "Source Figma symbol id, '' if hand-built",
+    "components[].figmaName": "Original CN name in Figma, '' if hand-built",
+    "components[].responsibilities": "Search keys for Reuse Probe. Use kebab-case visual-responsibility tags.",
+    "components[].variants": "Variant axes — what to pass via props",
+    "components[].consumers": "Pages that import this; populated by inventory:check",
+    "components[].notes": "Free text, esp. naming history or rules"
+  },
+  "components": [
+    {
+      "name": "MediaCard",
+      "dir": "src/components/MediaCard",
+      "tier": "T1",
+      "figmaId": "232:24825",
+      "figmaName": "Card / GUI卡片",
+      "responsibilities": [
+        "media-card",
+        "poster-card-horizontal",
+        "poster-card-vertical",
+        "rating-card",
+        "live-card"
+      ],
+      "variants": [
+        "kind: vod|vod-no-rating|channel|live|replay|shortvideo",
+        "size: M|S",
+        "focused",
+        "favorited"
+      ],
+      "consumers": [],
+      "notes": "Single component; kind prop drives label + meta layout. CardPoster is a page-specific variant for LiuDehua."
+    },
+    {
+      "name": "MediaCardRow",
+      "dir": "src/components/MediaCardRow",
+      "tier": "T3",
+      "figmaId": "245:5100",
+      "figmaName": "Card / ROW / GUI卡片-行",
+      "responsibilities": [
+        "media-card-row",
+        "row-layout-card"
+      ],
+      "variants": [
+        "size: M|S",
+        "focused"
+      ],
+      "consumers": [],
+      "notes": "Row-layout media card; pair with MediaCard for grid pages."
+    },
+    {
+      "name": "RecSlotCard",
+      "dir": "src/components/RecSlotCard",
+      "tier": "T1",
+      "figmaId": "93:21323",
+      "figmaName": "Card / 推荐位卡片",
+      "responsibilities": [
+        "recommendation-card",
+        "hero-card",
+        "featured-tile"
+      ],
+      "variants": [
+        "kind: vod|live|replay|channel",
+        "focused"
+      ],
+      "consumers": [],
+      "notes": "Inventory called this RecommendationCard; local file is RecSlotCard."
+    },
+    {
+      "name": "TopicCard",
+      "dir": "src/components/TopicCard",
+      "tier": "T1",
+      "figmaId": "174:18630",
+      "figmaName": "Card / 话题卡片",
+      "responsibilities": [
+        "topic-card",
+        "poster-card-topic"
+      ],
+      "variants": [
+        "layout: basic-horizontal|basic-vertical|tall-vertical|compact",
+        "focused"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "TopicCardRow",
+      "dir": "src/components/TopicCardRow",
+      "tier": "T3",
+      "figmaId": "245:7122",
+      "figmaName": "Card / ROW / 话题卡片-行",
+      "responsibilities": [
+        "topic-card-row"
+      ],
+      "variants": [
+        "layout: 4 types",
+        "focused"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "CardPoster",
+      "dir": "src/components/CardPoster",
+      "tier": "page-local",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "liudehua-poster",
+        "person-topic-poster"
+      ],
+      "variants": [
+        "type",
+        "state: default|focused"
+      ],
+      "consumers": [],
+      "notes": "Page-local variant for LiuDehua person-topic page; not a generic poster."
+    },
+    {
+      "name": "TextButton",
+      "dir": "src/components/TextButton",
+      "tier": "T1",
+      "figmaId": "264:34412",
+      "figmaName": "Text Button",
+      "responsibilities": [
+        "button-text",
+        "cta",
+        "prompt-button",
+        "filled-button",
+        "outline-button"
+      ],
+      "variants": [
+        "state: default|enable|focus|selected",
+        "type: filled|outline",
+        "size: L|M|S",
+        "shape: pill|rounded",
+        "playerScene: yes|no"
+      ],
+      "consumers": [],
+      "notes": "Focus = color swap, NEVER wrap in FocusRing (E1)."
+    },
+    {
+      "name": "IconButton",
+      "dir": "src/components/IconButton",
+      "tier": "T1",
+      "figmaId": "264:35654",
+      "figmaName": "Icon Button",
+      "responsibilities": [
+        "button-icon",
+        "icon-cta"
+      ],
+      "variants": [
+        "state: default|enable|focus|selected",
+        "type: filled|outline",
+        "size: L|M|S",
+        "shape: pill|rounded",
+        "playerScene: yes|no"
+      ],
+      "consumers": [],
+      "notes": "Same focus rule as TextButton; selected state must be page-managed (E20)."
+    },
+    {
+      "name": "NavTab",
+      "dir": "src/components/NavTab",
+      "tier": "T1",
+      "figmaId": "357:22575",
+      "figmaName": "Tabs (Top Nav)",
+      "responsibilities": [
+        "nav-tab",
+        "channel-tab",
+        "top-bar-tab"
+      ],
+      "variants": [
+        "state: default|focused|selected",
+        "appearance: classic|channel",
+        "kind: text|image"
+      ],
+      "consumers": [],
+      "notes": "Wrapped by TopBar. Channel/VIP/kid use kind='image'."
+    },
+    {
+      "name": "TopBar",
+      "dir": "src/components/TopBar",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "top-bar",
+        "top-nav-container"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": "Container for NavTab + utility chips on AISpaceMovie layout."
+    },
+    {
+      "name": "DUIBubble",
+      "dir": "src/components/DUIBubble",
+      "tier": "T1",
+      "figmaId": "145:15020",
+      "figmaName": "DUI_回复气泡",
+      "responsibilities": [
+        "assistant-bubble",
+        "chat-bubble",
+        "ai-reply"
+      ],
+      "variants": [
+        "status: replied|replying|thinking",
+        "role",
+        "scene"
+      ],
+      "consumers": [],
+      "notes": "Inventory called this AssistantBubble."
+    },
+    {
+      "name": "AssistantInput",
+      "dir": "src/components/AssistantInput",
+      "tier": "T1",
+      "figmaId": "157:19369",
+      "figmaName": "DUI_input",
+      "responsibilities": [
+        "assistant-input",
+        "ai-input",
+        "chat-input"
+      ],
+      "variants": [
+        "state: default|focus|filled|disabled"
+      ],
+      "consumers": [],
+      "notes": "Must wrap a real <input> per E34; swallow arrow keys + Enter and bubble via prop."
+    },
+    {
+      "name": "DialogDivider",
+      "dir": "src/components/DialogDivider",
+      "tier": "T2",
+      "figmaId": "123:376",
+      "figmaName": "DUI_分割",
+      "responsibilities": [
+        "dialog-divider",
+        "chat-time-marker"
+      ],
+      "variants": [
+        "type: time|switch-hint"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "FocusRing",
+      "dir": "src/components/FocusRing",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "focus-ring"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": "Single layer box-shadow only (E32). Buttons MUST NOT use FocusRing — use color swap."
+    },
+    {
+      "name": "Stage",
+      "dir": "src/components/Stage",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "stage",
+        "1080p-canvas"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": "1920x1080 canvas wrapper; handles scaling."
+    },
+    {
+      "name": "Icon",
+      "dir": "src/components/Icon",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "icon"
+      ],
+      "variants": [
+        "name: see iconRegistry"
+      ],
+      "consumers": [],
+      "notes": "SVG uses currentColor; add new icons to src/assets/icons/ and iconRegistry."
+    },
+    {
+      "name": "VideoRailItem",
+      "dir": "src/components/VideoRailItem",
+      "tier": "T2",
+      "figmaId": "174:19074",
+      "figmaName": "话题组件 / 视频组件",
+      "responsibilities": [
+        "video-rail-item",
+        "topic-rail-video"
+      ],
+      "variants": [
+        "layout: single|double",
+        "focused"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "PlaylistTopicRow",
+      "dir": "src/components/PlaylistTopicRow",
+      "tier": "T2",
+      "figmaId": "174:19068",
+      "figmaName": "话题组件 / 片单组件",
+      "responsibilities": [
+        "playlist-rail-item",
+        "topic-rail-playlist"
+      ],
+      "variants": [
+        "layout: poster-horizontal|poster-vertical|tall-vertical|special",
+        "focused"
+      ],
+      "consumers": [],
+      "notes": "Inventory called this PlaylistRailItem."
+    },
+    {
+      "name": "NewsRailItem",
+      "dir": "src/components/NewsRailItem",
+      "tier": "T2",
+      "figmaId": "197:19886",
+      "figmaName": "话题组件 / 新闻组件",
+      "responsibilities": [
+        "news-rail-item"
+      ],
+      "variants": [
+        "imagePosition: left|right",
+        "focused"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "WatchHistoryCard",
+      "dir": "src/components/WatchHistoryCard",
+      "tier": "T2",
+      "figmaId": "264:25938",
+      "figmaName": "话题组件 / 观看历史",
+      "responsibilities": [
+        "watch-history-card"
+      ],
+      "variants": [
+        "focused"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "TopicBadge",
+      "dir": "src/components/TopicBadge",
+      "tier": "T2",
+      "figmaId": "233:17489",
+      "figmaName": "节目专题",
+      "responsibilities": [
+        "topic-badge",
+        "program-badge",
+        "chip"
+      ],
+      "variants": [
+        "tone: cool|warm|person|tv",
+        "size: short|medium|long"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "NewsTimelineCard",
+      "dir": "src/components/NewsTimelineCard",
+      "tier": "T3",
+      "figmaId": "197:19984",
+      "figmaName": "卡片/新闻脉络",
+      "responsibilities": [
+        "news-timeline-card"
+      ],
+      "variants": [
+        "orientation: horizontal|vertical",
+        "rows: 1|n",
+        "focused"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "NewsTimelineRailItem",
+      "dir": "src/components/NewsTimelineRailItem",
+      "tier": "T3",
+      "figmaId": "197:20391",
+      "figmaName": "话题组件 / 新闻脉络",
+      "responsibilities": [
+        "news-timeline-rail-item"
+      ],
+      "variants": [
+        "orientation: horizontal|vertical"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "SideTab",
+      "dir": "src/components/SideTab",
+      "tier": "T3",
+      "figmaId": "151:15109",
+      "figmaName": "Side tab",
+      "responsibilities": [
+        "side-tab",
+        "side-nav"
+      ],
+      "variants": [
+        "state: default|focused|selected"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "DatePicker",
+      "dir": "src/components/DatePicker",
+      "tier": "T3",
+      "figmaId": "179:18916",
+      "figmaName": "datePicker",
+      "responsibilities": [
+        "date-picker"
+      ],
+      "variants": [
+        "state: default|focused|selected"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "BrandLogo",
+      "dir": "src/components/BrandLogo",
+      "tier": "TW",
+      "figmaId": "830:37002",
+      "figmaName": "编组 11 Newtv logo",
+      "responsibilities": [
+        "brand-logo",
+        "newtv-logo"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": "WaterfallHome top-left brand mark."
+    },
+    {
+      "name": "UtilityChip",
+      "dir": "src/components/UtilityChip",
+      "tier": "TW",
+      "figmaId": "830:37049",
+      "figmaName": "容器 135395..135399",
+      "responsibilities": [
+        "utility-chip",
+        "top-bar-pill"
+      ],
+      "variants": [
+        "kind: search|profile|companion|time",
+        "iconPosition: left|right"
+      ],
+      "consumers": [],
+      "notes": "rounded-full 5% white bg; time variant auto-renders wifi icon on right."
+    },
+    {
+      "name": "UtilityBar",
+      "dir": "src/components/UtilityBar",
+      "tier": "TW",
+      "figmaId": "830:37047",
+      "figmaName": "组 135396",
+      "responsibilities": [
+        "utility-bar",
+        "top-bar-utilities"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": "4 UtilityChips, gap 19px."
+    },
+    {
+      "name": "CornerBadge",
+      "dir": "src/components/CornerBadge",
+      "tier": "TW",
+      "figmaId": "830:36911",
+      "figmaName": "组 11/12 卡片角标",
+      "responsibilities": [
+        "corner-badge",
+        "free-badge",
+        "vip-badge"
+      ],
+      "variants": [
+        "kind: free|vip"
+      ],
+      "consumers": [],
+      "notes": "Free=green, VIP=gold CSS gradient. Swap for PNG if metal text needed."
+    },
+    {
+      "name": "BannerCard",
+      "dir": "src/components/BannerCard",
+      "tier": "TW",
+      "figmaId": "830:36909",
+      "figmaName": "Frame 48/47 items",
+      "responsibilities": [
+        "banner-card",
+        "wide-banner",
+        "grid-banner"
+      ],
+      "variants": [
+        "size: wide|grid",
+        "badge: free|vip",
+        "focused"
+      ],
+      "consumers": [],
+      "notes": "wide=540x322 Row1, grid=398x298 Row2."
+    },
+    {
+      "name": "PosterCard",
+      "dir": "src/components/PosterCard",
+      "tier": "TW",
+      "figmaId": "830:36858",
+      "figmaName": "Group 24 系列竖版海报",
+      "responsibilities": [
+        "poster-card-vertical-tall",
+        "series-poster"
+      ],
+      "variants": [
+        "badge: none|vip",
+        "focused"
+      ],
+      "consumers": [],
+      "notes": "312x458 poster + 32px Regular title."
+    },
+    {
+      "name": "PromoCard",
+      "dir": "src/components/PromoCard",
+      "tier": "TW",
+      "figmaId": "830:36948",
+      "figmaName": "Bitmap 1 VIP 专区",
+      "responsibilities": [
+        "promo-card",
+        "vip-zone-card"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": "398x298 using promo-vip-zone.svg as background."
+    },
+    {
+      "name": "CommerceStatusBadge",
+      "dir": "src/components/CommerceStatusBadge",
+      "tier": "page-local",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "commerce-status-badge"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "PackageReplyPanel",
+      "dir": "src/components/PackageReplyPanel",
+      "tier": "page-local",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "package-reply-panel"
+      ],
+      "variants": [
+        "state"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "PurchaseRecordCard",
+      "dir": "src/components/PurchaseRecordCard",
+      "tier": "page-local",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "purchase-record-card"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "EpgDuiDock",
+      "dir": "src/components/EpgDuiDock",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "epg-dui-dock",
+        "shared-dui-entry"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": "Shared EPG bottom-right DUI entry; managed at component level (see DESIGN_RULES §5)."
+    },
+    {
+      "name": "EpgRecommendationOverlay",
+      "dir": "src/components/EpgRecommendationOverlay",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "epg-recommendation-overlay"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": "Open via ?overlay=epg-recommendation deep link."
+    },
+    {
+      "name": "PlayerActionBar",
+      "dir": "src/components/PlayerActionBar",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "player-action-bar"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "PlayerAIOverlay",
+      "dir": "src/components/PlayerAIOverlay",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "player-ai-overlay"
+      ],
+      "variants": [
+        "state"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "PlayerEpisodeRail",
+      "dir": "src/components/PlayerEpisodeRail",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "player-episode-rail"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "PlayerInfoPanel",
+      "dir": "src/components/PlayerInfoPanel",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "player-info-panel"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "PlayerProgressBar",
+      "dir": "src/components/PlayerProgressBar",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "player-progress-bar"
+      ],
+      "variants": [
+        "markers"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "PlayerVoiceButton",
+      "dir": "src/components/PlayerVoiceButton",
+      "tier": "T1",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "player-voice-button"
+      ],
+      "variants": [
+        "variant"
+      ],
+      "consumers": [],
+      "notes": ""
+    },
+    {
+      "name": "MusicAlbumCard",
+      "dir": "src/components/MusicAlbumCard",
+      "tier": "T2",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "music-album-card",
+        "album-art-card",
+        "music-playlist-card"
+      ],
+      "variants": [
+        "focused"
+      ],
+      "consumers": [],
+      "notes": "Square album art card for music pages. MediaCard covers video; this covers music albums/playlists."
+    },
+    {
+      "name": "MusicMoodChip",
+      "dir": "src/components/MusicMoodChip",
+      "tier": "T2",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "music-mood-chip",
+        "mood-radio-entry",
+        "genre-chip"
+      ],
+      "variants": [
+        "tone: teal|orange|blue|pink|purple",
+        "focused",
+        "selected"
+      ],
+      "consumers": [],
+      "notes": "Mood/genre pill with abstract image background. TopicBadge covers program topics; this covers music mood selection."
+    },
+    {
+      "name": "MusicProgressBar",
+      "dir": "src/components/MusicProgressBar",
+      "tier": "T2",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "music-progress-bar",
+        "playback-scrubber",
+        "audio-seek-bar"
+      ],
+      "variants": [
+        "focused"
+      ],
+      "consumers": [],
+      "notes": "Playback progress bar with elapsed/total time display. Grows on focus, shows thumb dot. Music-specific; ProgressBar covers generic loading."
+    },
+    {
+      "name": "MusicControlBar",
+      "dir": "src/components/MusicControlBar",
+      "tier": "T2",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "music-control-bar",
+        "playback-controls",
+        "transport-controls"
+      ],
+      "variants": [],
+      "consumers": [],
+      "notes": "Flex row container for 5 playback buttons (shuffle, prev, play/pause, next, repeat). Center button gets glow ring via CSS nth-child."
+    },
+    {
+      "name": "MusicTrackRow",
+      "dir": "src/components/MusicTrackRow",
+      "tier": "T2",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "music-track-row",
+        "song-list-item",
+        "track-list-row"
+      ],
+      "variants": [
+        "focused",
+        "playing"
+      ],
+      "consumers": [],
+      "notes": "Full-width track list row with number, title, artist, duration. Playing state replaces number with a dot indicator. MusicAlbumCard covers album thumbnails; this covers inline track rows."
+    },
+    {
+      "name": "MusicWaveBar",
+      "dir": "src/components/MusicWaveBar",
+      "tier": "T2",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "music-wave-bar",
+        "audio-visualizer",
+        "playing-indicator"
+      ],
+      "variants": [
+        "paused"
+      ],
+      "consumers": [],
+      "notes": "Animated 5-bar sound wave indicator. aria-hidden, purely decorative. Paused prop stops animation. No existing component covers audio visualization."
+    },
+    {
+      "name": "WeatherHourlyItem",
+      "dir": "src/components/WeatherHourlyItem",
+      "tier": "T2",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "weather-hourly-item",
+        "hourly-forecast-item",
+        "weather-time-slot"
+      ],
+      "variants": [
+        "focused"
+      ],
+      "consumers": [
+        "weather"
+      ],
+      "notes": "Single hourly forecast slot: time label + weather icon + temperature. Appears 12 times in a horizontal rail. Focus state lifts card and applies focus ring."
+    },
+    {
+      "name": "WeatherDayCard",
+      "dir": "src/components/WeatherDayCard",
+      "tier": "T2",
+      "figmaId": "",
+      "figmaName": "",
+      "responsibilities": [
+        "weather-day-card",
+        "daily-forecast-card",
+        "weather-7day-item"
+      ],
+      "variants": [
+        "focused"
+      ],
+      "consumers": [
+        "weather"
+      ],
+      "notes": "Single daily forecast card: day label + weather icon + high/low temperature range. Appears 7 times in a horizontal rail. No disabled or selected state — read-only display."
+    }
+  ],
+  "renames": {
+    "RecommendationCard": "RecSlotCard",
+    "AssistantBubble": "DUIBubble",
+    "PlaylistRailItem": "PlaylistTopicRow"
+  },
+  "responsibilityHints": [
+    "Search this file by responsibility tag BEFORE creating any new component (DESIGN_RULES §3.1).",
+    "If you need a tag that doesn't exist here, you're probably the first consumer — extend the closest entry's variants instead of creating a new component, unless the visual responsibility itself is new."
+  ]
+}

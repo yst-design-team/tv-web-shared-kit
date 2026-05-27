@@ -1,0 +1,46 @@
+.weather-hourly-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  width: 96px;
+  padding: var(--space-18) var(--space-12);
+  border-radius: var(--radius-m);
+  background: var(--color-white-5);
+  transition: background var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+  flex-shrink: 0;
+}
+
+.weather-hourly-item[data-state='focus'] {
+  background: var(--color-white-15);
+  transform: translateY(-6px);
+  box-shadow: 0 0 0 var(--stroke-focus-outer) var(--color-focus-100);
+}
+
+.weather-hourly-item__time {
+  font-size: var(--font-body-small-r-size);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-body-small-r-lh);
+  color: var(--color-text-dark-3);
+}
+
+.weather-hourly-item[data-state='focus'] .weather-hourly-item__time {
+  color: var(--color-focus-text);
+}
+
+.weather-hourly-item__icon {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.weather-hourly-item__temp {
+  font-size: var(--font-body-medium-b-size);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-body-medium-b-lh);
+  color: var(--color-text-dark-1);
+}
+
+.weather-hourly-item[data-state='focus'] .weather-hourly-item__temp {
+  color: var(--color-focus-100);
+}

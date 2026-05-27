@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "./tokens/tokens.css";
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: #0a0a0c;
+  color: var(--color-text-dark-1);
+  font-family: var(--font-family-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

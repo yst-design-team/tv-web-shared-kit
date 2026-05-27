@@ -1,0 +1,31 @@
+{
+  "_comment": "Example manifest for scripts/import-assets.mjs. Copy to .artifacts/plan-<node>.json and edit. Run: npm run import-assets -- <path-to-this-file>",
+  "outDir": "public/images/waterfall/cards",
+  "defaults": {
+    "bleed": 2,
+    "expectedColorType": "rgba"
+  },
+  "assets": [
+    {
+      "id": "row1-hero",
+      "src": "https://www.figma.com/api/mcp/asset/REPLACE-WITH-UUID",
+      "out": "row1-hero.png",
+      "expectedSize": [540, 322],
+      "note": "WaterfallHome Row1 wide banner — TTL ~7 days, re-export before expiry"
+    },
+    {
+      "id": "row2-grid-1",
+      "src": "https://www.figma.com/api/mcp/asset/REPLACE-WITH-UUID",
+      "out": "row2-grid-1.png",
+      "expectedSize": [398, 298],
+      "bleed": 0,
+      "note": "Tight bleed: this card sits inside an inner viewport"
+    },
+    {
+      "id": "promo-vip-zone",
+      "src": "https://www.figma.com/api/mcp/asset/REPLACE-WITH-UUID",
+      "out": "promo-vip-zone.svg",
+      "expectedSize": [398, 298]
+    }
+  ]
+}
